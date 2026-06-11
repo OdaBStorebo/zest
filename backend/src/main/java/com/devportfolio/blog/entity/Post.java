@@ -1,5 +1,9 @@
 package com.devportfolio.blog.entity;
 
+import java.time.LocalDateTime;
+
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.GeneratedValue;
@@ -15,6 +19,9 @@ public class Post {
 	private String title;
 	private String content;
 	
+	@CreationTimestamp
+	private LocalDateTime createdAt;
+	
 	public Post() {}
 	
 	public Post(String title, String content) {
@@ -26,6 +33,14 @@ public class Post {
 		return id;
 	}
 	
+	public LocalDateTime getCreatedAt() {
+		return createdAt;
+	}
+
+	public void setCreatedAt(LocalDateTime createdAt) {
+		this.createdAt = createdAt;
+	}
+
 	public String getTitle() {
 		return title;
 	}

@@ -7,6 +7,9 @@ backend/.settings/
 backend/.classpath
 backend/.project
 
+# Spring Boot secrets
+backend/src/main/resources/application.properties
+
 # Frontend
 frontend/node_modules/
 frontend/dist/
