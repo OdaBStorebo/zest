@@ -4,6 +4,7 @@ import java.time.LocalDateTime;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 
 import jakarta.persistence.GeneratedValue;
@@ -19,14 +20,18 @@ public class Post {
 	private String title;
 	private String content;
 	
+	@Column(name="author_identifier")
+	private String authorIdentifier;
+	
 	@CreationTimestamp
 	private LocalDateTime createdAt;
 	
 	public Post() {}
 	
-	public Post(String title, String content) {
+	public Post(String title, String content, String authorIdentifier) {
 		this.title = title;
 		this.content = content;
+		this.authorIdentifier = authorIdentifier;
 	}
 	
 	public Long getId() {
@@ -48,6 +53,11 @@ public class Post {
 	public String getContent() {
 		return content;
 	}
+	
+	public String getAuthorIdentifier() {
+		return authorIdentifier;
+	}
+	
 
 	public void setId(Long id) {
 		this.id = id;
@@ -61,5 +71,8 @@ public class Post {
 		this.content = content;
 	}
 	
+	public void setAuthorIdentifier(String authorIdentifier) {
+		this.authorIdentifier = authorIdentifier;
+	}
 	
 }

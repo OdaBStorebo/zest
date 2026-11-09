@@ -11,6 +11,9 @@ import com.devportfolio.blog.repository.PostRepository;
 
 @Service
 public class PostService {
+	
+	private static final String TEST_USER_IDENTIFIER = "test-user";
+	
 	@Autowired
 	private final PostRepository postRepository;
 	
@@ -19,6 +22,7 @@ public class PostService {
 	}
 	
 	public Post savePost(Post post) {
+		post.setAuthorIdentifier(TEST_USER_IDENTIFIER);
 		return postRepository.save(post);
 	}
 	
